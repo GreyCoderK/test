@@ -5,3 +5,5 @@ script:
 - npm run lint
 deploy:
   provider: heroku
+  api_key:
+    secure: f5b97045-4dbb-458e-9015-631e6d660f6b
