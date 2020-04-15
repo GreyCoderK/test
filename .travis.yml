@@ -3,3 +3,6 @@ node_js:
   - lts/*
 script:
 - npm run lint
+deploy:
+  provider: heroku
+  api_key: 7b104ae2-2564-4af4-867f-801ec3c44e7d
