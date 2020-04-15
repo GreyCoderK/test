@@ -1,0 +1,327 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Api_adjamé_market",
+        "description": "Api de l'application d'e-commerce Adjamé market"
+    },
+    "host": "localhost:7777",
+    "basePath": "/api",
+    "tags": [
+        {
+            "name": "type_article",
+            "description": "Api du type d'article"
+        },
+        {
+            "name": "type_user",
+            "description": "Api du type d'utilisateur"
+        },
+        {
+            "name": "menu_vertical",
+            "description": "Api du menu vertical"
+        },
+        {
+            "name": "user",
+            "description": "Api de l'utilisateur"
+        },
+        {
+            "name": "article",
+            "description": "Api de l'article"
+        }
+    ],
+    "servers": [
+        {
+            "url": "/",
+            "description": "Local developpement"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/type_article": {
+            "get": {
+                "tags": [
+                    "type_article"
+                ],
+                "summary": "Retourne l'ensemble des types articles enregistré",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/type_article"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "type_article"
+                ],
+                "summary": "Permet d'enregistré un type d'article",
+                "requestBody": {
+                    "description": "type_article Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/type_article"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/type_article"
+                        }
+                    }
+                }
+            }
+        },
+        "/type_article/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID du type article que nous recherchons",
+                    "type": "integer"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "type_article"
+                ],
+                "summary": "Retourne le type article avec cet identifiant",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "type article avec l'identifiant id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/type_article"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Modifier le type article avec l'identifiant id",
+                "tags": [
+                    "type_article"
+                ],
+                "requestBody": {
+                    "description": "type_article Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/type_article"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "l'identifiant du type article à modifier"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/type_article"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Supprimer le type article avec l'identifiant id",
+                "tags": [
+                    "type_article"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "l'identifiant du type article à supprimer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/type_article/{libelle}": {
+            "parameters": [
+                {
+                    "name": "libelle",
+                    "in": "path",
+                    "required": true,
+                    "description": "libelle du type article que nous recherchons",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "type_article"
+                ],
+                "summary": "Retourne le type article avec ce libelle",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "libelle",
+                        "required": true,
+                        "description": "type article avec le libelle"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/type_article"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Supprimer le type article avec le libelle",
+                "tags": [
+                    "type_article"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "libelle",
+                        "required": true,
+                        "description": "libelle du type article à supprimer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "type_article": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "libelle": {
+                    "type": "string"
+                }
+            }
+        },
+        "type_user": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "libelle": {
+                    "type": "string"
+                }
+            }
+        },
+        "menu_vertical": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "libelle": {
+                    "type": "string"
+                },
+                "icone": {
+                    "type": "string"
+                },
+                "couleur": {
+                    "type": "string"
+                }
+            }
+        },
+        "article": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "prix": {
+                    "type": "integer"
+                },
+                "typeArticle": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/type_article"
+                    }
+                }
+            }
+        },
+        "user": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "nom": {
+                    "type": "string"
+                },
+                "prenoms": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "date"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "contact": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "typeUser": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/type_user"
+                    }
+                }
+            }
+        }
+    }
+}
